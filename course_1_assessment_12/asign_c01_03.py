@@ -17,4 +17,5 @@ for word in sent_lst:
     if word not in stopwords:
         acro = acro + word[:2].upper() + ". "
 
+# Not sure if this was intended, but test would not pass unless I removed the last 2 charecters from acro
 acro = acro[:-2]
