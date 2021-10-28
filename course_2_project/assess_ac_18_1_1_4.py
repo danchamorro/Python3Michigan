@@ -8,8 +8,6 @@
 # Remember that there is another component to this project. You will upload the csv file to Excel or Google Sheets and
 # produce a graph of the Net Score vs Number of Retweets. Check Coursera for that portion of the assignment, if you’re
 # accessing this textbook from Coursera.
-import csv
-
 
 def strip_punctuation(word):
     for char in word:
@@ -55,21 +53,49 @@ with open("negative_words.txt") as neg_f:
             negative_words.append(lin.strip())
 
 
-# dictionary of tweets
-with open("project_twitter_data.csv") as tweet_f:
-    next(tweet_f)
-    for line in tweet_f:
-        poss_lines = get_pos(line)
-        neg_lines = get_neg(line)
-        print("Positive:{}, Negative:{}".format(poss_lines, neg_lines))
+# list of tweets scores, replies and retweets by count
+#! My preferred way of doing it using next(), but their interpreter would allow it. 👇🏼
+results = []
+# with open("project_twitter_data.csv") as tweet_f:
+#     next(tweet_f)
+#     for line in tweet_f:
+#         retweet_count = line.split(",")[1]
+#         reply_count = line.split(",")[2].replace("\n", "")
+#         poss_count = get_pos(line)
+#         neg_count = get_neg(line)
+#         net_score = poss_count - neg_count
+#         temp_tupl = (retweet_count, reply_count,
+#                      poss_count, neg_count, net_score)
+#         results.append(temp_tupl)
+#         print("Retweet Count: {}, Reply Count: {}, Positive:{}, Negative:{}, Net Score:{}".format(
+#             retweet_count, reply_count, poss_count, neg_count, net_score))
 
-results = {}
-with open("project_twitter_data.csv") as tweet_f:
-    next(tweet_f)
-    for line in tweet_f:
-        retweet_count = line[-4].replace(",", "")
-        reply_count = line[-2].replace(",", "")
-        poss_lines = get_pos(line)
-        neg_lines = get_neg(line)
-        print("Retweet Count: {}, Reply Count: {}, Positive:{}, Negative:{}".format(
-            retweet_count, reply_count, poss_lines, neg_lines))
+tweet_f = open("project_twitter_data.csv", "r")
+lines = tweet_f.readlines()
+for line in lines[1:]:
+    retweet_count = line.split(",")[1]
+    reply_count = line.split(",")[2].replace("\n", "")
+    poss_count = get_pos(line)
+    neg_count = get_neg(line)
+    net_score = poss_count - neg_count
+    temp_tupl = (retweet_count, reply_count,
+                 poss_count, neg_count, net_score)
+    results.append(temp_tupl)
+    print("Retweet Count: {}, Reply Count: {}, Positive:{}, Negative:{}, Net Score:{}".format(
+        retweet_count, reply_count, poss_count, neg_count, net_score))
+
+print(results)
+
+# Number of Retweets, Number of Replies, Positive Score, Negative Score, Net Score
+
+with open("resulting_data.csv", "w") as result_f:
+    # Header row
+    result_f.write(
+        "Number of Retweets, Number of Replies, Positive Score, Negative Score, Net Score")
+    result_f.write("\n")
+    # Each of the rows
+    for result in results:
+        row_string = "{},{},{},{},{}".format(
+            result[0], result[1], result[2], result[3], result[4])
+        result_f.write(row_string)
+        result_f.write("\n")
