@@ -14,8 +14,9 @@ for elm in lst:
             yellow = True
         else:
             yellow = False
-
 print(yellow)
+
+
 # Test to see if 4 is in the second list of lst. Save to variable ``four``
 four = bool
 
