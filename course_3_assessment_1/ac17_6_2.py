@@ -24,8 +24,6 @@ for elm in lst:
     for num in elm:
         if type(num) is int and num == 4:
             four = True
-        else:
-            four = False
 print(four)
 
 
