@@ -66,4 +66,21 @@ def get_movie_data(movie_title):
     return data
 
 
-print(get_movie_data('Black Panther'))
+# Now write a function called get_movie_rating. It takes an OMDB dictionary result for one movie and extracts the Rotten Tomatoes rating as an integer. For example, if given the OMDB dictionary for “Black Panther”, it would return 97. If there is no Rotten Tomatoes rating, return 0.
+def get_movie_rating(movie_dic):
+    if 'Ratings' in movie_dic:
+        for rating in movie_dic['Ratings']:
+            if rating['Source'] == 'Rotten Tomatoes':
+                return int(rating['Value'][:-1])
+    return 0
+
+
+# Define a function get_sorted_recommendations. It takes a list of movie titles as an input. It returns a sorted list of related movie titles as output, up to five related movies for each input movie title. The movies should be sorted in descending order by their Rotten Tomatoes rating, as returned by the get_movie_rating function. Break ties in reverse alphabetic order, so that ‘Yahşi Batı’ comes before ‘Eyyvah Eyvah’.
+def get_sorted_recommendations(movie_list):
+    related_titles = get_related_titles(movie_list)
+    movie_ratings = []
+    for movie in related_titles:
+        movie_ratings.append((get_movie_rating(
+            get_movie_data(movie)), movie))
+    movie_ratings.sort(reverse=True)
+    return [movie[1] for movie in movie_ratings]
