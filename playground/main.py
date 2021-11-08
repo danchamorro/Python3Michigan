@@ -20,3 +20,24 @@ class Animal:
 spider = Animal(4, 4)
 
 spidlimbs = spider.limbs()
+
+print(spidlimbs)
+print(spider.arms)
+
+vals = [25, 30, 33, 35, 40, 180]
+# do a list comprehension that that adds 32 to each value in the vals list and save the result to a variable called new_vals
+new_vals = [val + 32 for val in vals]
+
+# for val in vals:
+#     new_vals.append(val + 32)
+
+print(new_vals)
+
+# Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false with list comprehension.
+
+
+def bool_to_word(boolean):
+    return "Yes" if boolean else "No"
+
+
+print(bool_to_word(False))
