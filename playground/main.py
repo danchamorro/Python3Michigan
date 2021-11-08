@@ -1,27 +1,22 @@
-# Connect to itunes api
-def connect_to_itunes(artist):
-    import requests
-    import json
-    url = 'https://itunes.apple.com/search'  # url to search
-    params = {'term': artist, 'media': 'music',
-              'entity': 'album', 'limit': '1'}  # parameters to search
-    r = requests.get(url, params=params)  # request
-    data = r.json()  # convert to json
-    return json.dumps(data, indent=2)  # pretty print
+# Create a class called NumberSet that accepts 2 integers as input, and defines two instance variables: num1 and num2, which hold each of the input integers. Then, create an instance of NumberSet where its num1 is 6 and its num2 is 10. Save this instance to a variable t.
+class NumberSet:
+    def __init__(self, num1, num2):
+        self.num1 = num1
+        self.num2 = num2
 
 
-# print(connect_to_itunes('taylor swift'))
-
-# Connect to flikr api
-def connect_to_flikr(keyword):
-    import requests
-    import json
-    url = 'https://api.flickr.com/services/rest'  # url to search
-    params = {'method': 'flickr.photos.search', 'api_key': '2f5ac274ecfac5a455f38745704ad084',
-              'text': keyword, 'format': 'json', 'nojsoncallback': '1', 'extras': 'url_m'}  # parameters to search
-    r = requests.get(url, params=params)  # request
-    data = r.json()  # convert to json
-    return json.dumps(data, indent=2)  # pretty print
+t = NumberSet(6, 10)
 
 
-print(connect_to_flikr('taylor swift'))
+class Animal:
+    def __init__(self, arms, legs):
+        self.arms = arms
+        self.legs = legs
+
+    def limbs(self):
+        return self.arms + self.legs
+
+
+spider = Animal(4, 4)
+
+spidlimbs = spider.limbs()
