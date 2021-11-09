@@ -21,8 +21,8 @@ spider = Animal(4, 4)
 
 spidlimbs = spider.limbs()
 
-print(spidlimbs)
-print(spider.arms)
+# print(spidlimbs)
+# print(spider.arms)
 
 vals = [25, 30, 33, 35, 40, 180]
 # do a list comprehension that that adds 32 to each value in the vals list and save the result to a variable called new_vals
@@ -31,7 +31,7 @@ new_vals = [val + 32 for val in vals]
 # for val in vals:
 #     new_vals.append(val + 32)
 
-print(new_vals)
+# print(new_vals)
 
 # Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false with list comprehension.
 
@@ -40,4 +40,20 @@ def bool_to_word(boolean):
     return "Yes" if boolean else "No"
 
 
-print(bool_to_word(False))
+# print(bool_to_word(False))
+
+class Cereal:
+    def __init__(self, name, brand, fiber):
+        self.name = name
+        self.brand = brand
+        self.fiber = fiber
+
+    def __str__(self):
+        return "{} cereal is produced by {} and has {} grams of fiber in every serving!".format(self.name, self.brand, self.fiber)
+
+
+c1 = Cereal("Corn Flakes", "Kellogg's", 2)
+c2 = Cereal("Honey Nut Cheerios", "General Mills", 3)
+
+print(c1)
+print(c2)
