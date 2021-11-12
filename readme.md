@@ -1,6 +1,6 @@
 # Python 3 Michigan State Coursera Certification
 
-**This repo is all my completed and graded assignments from the Python 3 Programming Specialization on Coursera**
+## This repo is all my completed and graded assignments from the Python 3 Programming Specialization
 
 [![Coursera-Z8-EHFFX47-K73.png](https://i.postimg.cc/cCMjK3XP/Coursera-Z8-EHFFX47-K73.png)](https://postimg.cc/n9rTgX81)
 
