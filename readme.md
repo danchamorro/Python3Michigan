@@ -2,11 +2,13 @@
 
 ## This repo is all my completed and graded assignments from the Python 3 Programming Specialization on Coursera
 
-## Certifications
+[![Coursera-Z8-EHFFX47-K73.png](https://i.postimg.cc/cCMjK3XP/Coursera-Z8-EHFFX47-K73.png)](https://postimg.cc/n9rTgX81)
 
-- **Name**: Python Basics
+## Certification
+
+- **Name**: Python 3 Programming Specialization
 - **Issuing Organization**: Coursera
-- **Issue Date**: October 2021
+- **Issue Date**: November 2021
 - **Expiration Date**: This certification does not expire
-- **Credential ID**: 7JBD77ULNJCP
-- **Credential URL**: <https://www.coursera.org/account/accomplishments/certificate/7JBD77ULNJCP>
+- **Credential ID**: Z8EHFFX47K73
+- **Credential URL**: <https://www.coursera.org/account/accomplishments/specialization/certificate/Z8EHFFX47K73>
